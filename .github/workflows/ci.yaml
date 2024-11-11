@@ -4,7 +4,6 @@ on:
   pull_request:
     branches:
       - main
-      - dev
   push:
     branches:
       - main
@@ -12,6 +11,8 @@ on:
 jobs:
   setup:
     runs-on: ubuntu-latest
+    outputs:
+      poetry-cache: ${{ steps.install-poetry.outputs.cache-hit }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -22,6 +23,7 @@ jobs:
           python-version: 3.12
 
       - name: Install Poetry
+        id: install-poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
           echo "$HOME/.local/bin" >> $GITHUB_PATH
@@ -38,6 +40,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+
       - name: Run black
         run: poetry run black --check .
         env:
@@ -50,6 +57,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+
       - name: Run flake8
         run: poetry run flake8 .
         env:
@@ -61,6 +73,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
 
       - name: Run tests with pytest
         run: poetry run pytest
