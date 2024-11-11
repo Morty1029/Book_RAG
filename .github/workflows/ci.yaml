@@ -28,11 +28,6 @@ jobs:
         env:
           PIP_CACHE_DIR: .cache/pip
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.12
-
       - name: Run flake8
         run: poetry run flake8 .
         env:
