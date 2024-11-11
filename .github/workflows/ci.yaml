@@ -1,3 +1,4 @@
+
 name: CI
 
 on:
@@ -13,13 +14,20 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: 3.12
 
+      - name: Change directory to root
+        run: cd ..
+
       - name: Install poetry
         uses: abatilo/actions-poetry@v2
+
       - name: Install dependencies with poetry
         run: poetry install
 
