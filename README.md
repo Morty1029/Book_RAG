@@ -34,10 +34,9 @@ A short description of the project.
 ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
 │   └── figures        <- Generated graphics and figures to be used in reporting
 │
+├── setup.cfg          <- Configuration file for flake8
 │
-├── setup.cfg          <- Configuration file for flake8 and black
-│
-└── rag   <- Source code for use in this project.
+└── RAG   <- Source code for use in this project.
     │
     ├── __init__.py             <- Makes recsys a Python module
     │
