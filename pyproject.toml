@@ -12,6 +12,15 @@ pytest = "^8.3.3"
 pre-commit = "^4.0.1"
 black = "^24.10.0"
 flake8 = "^7.1.1"
+langchain = "^0.3.12"
+sentence-transformers = "^3.3.1"
+faiss-cpu = "^1.9.0.post1"
+requests = "^2.32.3"
+openai = "^1.57.4"
+jupyter = "^1.1.1"
+pandas = "^2.2.3"
+python-dotenv = "^1.0.1"
+langchain-community = "^0.3.12"
 
 
 [build-system]
