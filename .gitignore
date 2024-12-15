@@ -1,6 +1,7 @@
 # Data
 /data/
-
+notebooks/data
+notebooks/HP_vector_store
 *.env
 
 # Mac OS-specific storage files
