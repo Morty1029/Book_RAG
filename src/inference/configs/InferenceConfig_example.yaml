@@ -1,0 +1,4 @@
+API_KEY: ""
+API_URL: ""
+model: "openai.gpt-4o-mini"
+retriever_model: "sentence-transformers/all-mpnet-base-v2"
