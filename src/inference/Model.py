@@ -33,7 +33,14 @@ class Model:
         ).as_retriever()
 
     def inference(self, data: ClientInputData) -> BotAnswer:
-        retriever_res = self.retriever.invoke(data.prompt, k=RECOMMENDATION_COUNT)
+        if data.book_num == 0:
+            retriever_res = self.retriever.invoke(data.prompt, k=RECOMMENDATION_COUNT)
+        else:
+            retriever_res = self.retriever.invoke(
+                data.prompt,
+                k=RECOMMENDATION_COUNT,
+                filter={"Номер книги": data.book_num},
+            )
         response = self.client.chat.completions.create(
             model=self.config.model,
             messages=[
